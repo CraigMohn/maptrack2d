@@ -1,0 +1,15 @@
+Package: maptrack2d
+Type: Package
+Title: Draw 2d map of set of gps tracks
+Version: 0.5.0
+Date: 2019-09-15
+Author: Craig Mohn
+Maintainer: Craig Mohn <craig.mohn.projects@gmail.com>
+Depends: R (>= 3.0.0)
+Imports: magrittr, dplyr, tibble, lubridate, stringr,
+    OpenStreetMap, ggplot2, viridis, scales
+Description: Draws maps of a set of gps tracks.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
