@@ -4,12 +4,11 @@
 \alias{draw2d}
 \title{plot ride track data on a map}
 \usage{
-draw2d(geodf, outfile, maptitle, definedmaps, usemap, maptype = "osm",
+draw2d(geodf, outfile, maptitle, mapWindow, maptype = "osm",
   minTiles = 50, mapsize = c(1600, 1200), fine.map = FALSE,
-  margin.factor = 0.08, draw.speed = FALSE, line.color = "magenta",
-  line.width = 3, line.alpha = 0.8, speed.color = "speedcolors",
-  speed.alpha = 0.7, speed.ptsize = 6, speed.pch = 19,
-  jpeg.quality = 90)
+  draw.speed = FALSE, line.color = "magenta", line.width = 3,
+  line.alpha = 0.8, speed.color = "speedcolors", speed.alpha = 0.7,
+  speed.ptsize = 6, speed.pch = 19, jpeg.quality = 90, ...)
 }
 \arguments{
 \item{geodf}{data frame or tibble containing at least: position_lat.dd,
@@ -21,11 +20,8 @@ and speed.m.s for speed coloring}
 
 \item{maptitle}{string containing title}
 
-\item{definedmaps}{list, each named entry is a list of two vectors of
-length two, named lat and lon, containing the min and max of the
-latitude andf longitude of the map area}
-
-\item{usemap}{string identifying area from list \eqn{definedmaps} or}
+\item{mapWindow}{a vector of 4 numbers which describe the region drawn.
+The format is c(lon_min, lon_max, lat_min, lat_max)}
 
 \item{maptype}{map to use as background (\code{"maptoolkit-topo"} or
 \code{"bing"} or \code{"osm"} or \code{"stamen-terrain"} or
@@ -39,9 +35,6 @@ but better quality}
 \item{mapsize}{pixel size of map created}
 
 \item{fine.map}{if true, use c(7680,4800) for map size}
-
-\item{margin.factor}{percentage to expand map area beyond limits of
-the track in each direction, when autodetermining region to plot}
 
 \item{draw.speed}{if true, draw track(s) as a series of points whose color
 indicates travel speed}
@@ -69,6 +62,8 @@ doubled if \eqn{fine.map} is set true.}
 
 \item{jpeg.quality}{the "quality" of the JPEG image, a percentage. Smaller
 values will give more compression but also more degradation of the image}
+
+\item{...}{arguments for other functions}
 }
 \value{
 NULL or plotly object
